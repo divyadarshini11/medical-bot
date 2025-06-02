@@ -1,6 +1,6 @@
 import os
 import streamlit as st
-import hashlib
+
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 
@@ -11,6 +11,7 @@ from langchain_huggingface import HuggingFaceEndpoint
 # Load environment variables
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(dotenv_path="D:/MEDICAL_CHATBOT/data/.env", override=True)
+
 
 DB_FAISS_PATH="vectorstore/db_faiss"
 @st.cache_resource
@@ -38,44 +39,9 @@ def load_llm(huggingface_repo_id, HF_TOKEN):
 def main():
     st.title("Ask GaleBot!")
 
-    # Chat history and new chat feature
     if 'messages' not in st.session_state:
         st.session_state.messages = []
-    if 'chat_sessions' not in st.session_state:
-        st.session_state.chat_sessions = []
-    if 'current_session' not in st.session_state:
-        st.session_state.current_session = 0
 
-    # Sidebar for chat history and new chat
-    with st.sidebar:
-        st.header("Chat Sessions")
-        if st.button("New Chat"):
-            # Save current session to chat_sessions
-            if st.session_state.messages:
-                st.session_state.chat_sessions.append(st.session_state.messages)
-            st.session_state.messages = []
-            st.session_state.current_session = len(st.session_state.chat_sessions)
-        # List previous chat sessions
-        for idx, session in enumerate(st.session_state.chat_sessions):
-            # Extract the first user message as the session title
-            if session:
-                first_user_message = next((m['content'] for m in session if m['role'] == 'user'), None)
-                if first_user_message:
-                    # Use the first 3 words as a keyword summary
-                    session_title = ' '.join(first_user_message.split()[:3]) + ('...' if len(first_user_message.split()) > 3 else '')
-                    session_help = first_user_message
-                else:
-                    session_title = f"Session {idx+1}"
-                    session_help = "No user question."
-            else:
-                session_title = f"Session {idx+1}"
-                session_help = "No user question."
-            hashed_key = hashlib.md5(session_title.encode()).hexdigest()
-            if st.button(session_title, help=session_help, key=f"button_{hashed_key}"):
-                st.session_state.messages = session.copy()
-                st.session_state.current_session = idx
-
-    # Display chat history
     for message in st.session_state.messages:
         st.chat_message(message['role']).markdown(message['content'])
 
@@ -117,6 +83,7 @@ def main():
             result=response["result"]
             source_documents=response["source_documents"]
             result_to_show=result+"\nSource Docs:\n"+str(source_documents)
+            #response="Hi, I am MediBot!"
             st.chat_message('assistant').markdown(result_to_show)
             st.session_state.messages.append({'role':'assistant', 'content': result_to_show})
 
