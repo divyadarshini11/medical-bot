@@ -70,7 +70,7 @@ def main():
             else:
                 session_title = f"Session {idx+1}"
                 session_help = "No user question."
-            if st.button(session_title, help=session_help):
+            if st.button(session_title, help=session_help, key=f"button_{session_title}"):
                 st.session_state.messages = session.copy()
                 st.session_state.current_session = idx
 
