@@ -11,6 +11,7 @@ faiss-cpu = "*"
 pypdf = "*"
 streamlit = "*"
 python-dotenv = "*"
+torch = "*"
 
 [dev-packages]
 

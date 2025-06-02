@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8cc999aebba98c005273f435caed9f73239164a28e97edd256474b4d7f2bdc07"
+            "sha256": "f99a05858010d613e9e8fb6066f2edebf05c4075e03014da90015f6fc4b2a37c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1494,12 +1494,12 @@
         },
         "pypdf": {
             "hashes": [
-                "sha256:2f61f2d32dde00471cd70b8977f98960c64e84dd5ba0d070e953fcb4da0b2a73",
-                "sha256:8ce6a18389f7394fd09a1d4b7a34b097b11c19088a23cfd09e5008f85893e254"
+                "sha256:a4b6538b77fc796622000db7127e4e58039ec5e6afd292f8e9bf42e2e985a749",
+                "sha256:ca6bf446bfb0a2d8d71d6d6bb860798d864c36a29b3d9ae8d7fc7958c59f88e7"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==5.5.0"
+            "version": "==5.6.0"
         },
         "python-dateutil": {
             "hashes": [
@@ -1594,7 +1594,7 @@
         },
         "regex": {
             "hashes": [
-                "sha256:2b3361af3198667e99927da8b84c1b010752fa4b1115ee30beaa332cabc3ef1a",
+                "sha256:02e28184be537f0e75c1f9b2f8847dc51e08e6e171c6bde130b2687e0c33cf60",
                 "sha256:7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
             ],
             "markers": "python_version >= '3.8'",
@@ -1856,14 +1856,6 @@
             "markers": "python_version >= '3.9'",
             "version": "==4.1.0"
         },
-        "setuptools": {
-            "hashes": [
-                "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922",
-                "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
-            ],
-            "markers": "python_version >= '3.9'",
-            "version": "==80.9.0"
-        },
         "six": {
             "hashes": [
                 "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
@@ -2040,6 +2032,7 @@
                 "sha256:fc1ed9258cbfce69970ff508ea60881818d414d098a800b7695ba36f570d34b0",
                 "sha256:fd5cfbb4c3bbadd57ad1b27d56a28008f8d8753733411a140fcfb84d7f933a25"
             ],
+            "index": "pypi",
             "markers": "python_full_version >= '3.9.0'",
             "version": "==2.7.0"
         },
