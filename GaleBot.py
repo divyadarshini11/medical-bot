@@ -1,4 +1,7 @@
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+os.environ["TRANSFORMERS_NO_CUDA"] = "1"
+
 import streamlit as st
 
 from langchain.embeddings import HuggingFaceEmbeddings
