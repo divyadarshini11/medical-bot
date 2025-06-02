@@ -16,8 +16,11 @@ load_dotenv(dotenv_path="D:/MEDICAL_CHATBOT/data/.env", override=True)
 DB_FAISS_PATH="vectorstore/db_faiss"
 @st.cache_resource
 def get_vectorstore():
-    embedding_model=HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
-    db=FAISS.load_local(DB_FAISS_PATH, embedding_model, allow_dangerous_deserialization=True)
+    embedding_model = HuggingFaceEmbeddings(
+        model_name='sentence-transformers/all-MiniLM-L6-v2',
+        model_kwargs={'device': 'cpu'}
+    )
+    db = FAISS.load_local(DB_FAISS_PATH, embedding_model, allow_dangerous_deserialization=True)
     return db
 
 
