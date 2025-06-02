@@ -45,7 +45,7 @@ def main():
         st.session_state.chat_sessions = []
     if 'current_session' not in st.session_state:
         st.session_state.current_session = 0
-    hashed_key = hashlib.md5(session_title.encode()).hexdigest()
+
     # Sidebar for chat history and new chat
     with st.sidebar:
         st.header("Chat Sessions")
@@ -70,6 +70,7 @@ def main():
             else:
                 session_title = f"Session {idx+1}"
                 session_help = "No user question."
+            hashed_key = hashlib.md5(session_title.encode()).hexdigest()
             if st.button(session_title, help=session_help, key=f"button_{hashed_key}"):
                 st.session_state.messages = session.copy()
                 st.session_state.current_session = idx
